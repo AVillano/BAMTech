@@ -1,1 +1,47 @@
-<p>people works!</p>
+<!--@if (!errorLoading)
+{
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Current Rank</th>
+                <th scope="col">Current Duty Title</th>
+                <th scope="col">Current Start Date</th>
+                <th scope="col">Current End Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        @for (person of people; track person.personId) {
+            <tr>
+                <td>{{person.name}}</td>
+                <td>{{person.currentRank}}</td>
+                <td>{{person.currentDutyTitle}}</td>
+                <td>{{person.careerStartDate}}</td>
+                <td>{{person.careerEndDate}}</td>
+            </tr>
+        }
+        @empty {
+            <tr>
+                <td>No data to display</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}-->
+<main>
+    <!--<h1>People</h1>-->
+    @for (person of people; track person.personId)
+    {
+        <div class="card" (click)="openModal(person.name)">
+            <h3>{{person.name}}</h3>
+            <hr />
+            <div>Rank: {{person.currentRank == "" ? "None" : person.currentRank}}</div>
+            <div>Current Duty Title: {{person.currentDutyTitle == "" ? "None" : person.currentDutyTitle}}</div>
+            <div>Career Start Date: {{person.careerStartDate == null ? "None" : (person.careerStartDate | date: 'mediumDate')}}</div>
+            <div>Career End Date: {{person.careerEndDate == null ? "None" : (person.careerEndDate | date: 'mediumDate')}}</div>
+        </div>
+    }
+    <!--<button (click)="resubscribe()">data test</button>-->
+</main>
+
+<app-person-modal></app-person-modal>
