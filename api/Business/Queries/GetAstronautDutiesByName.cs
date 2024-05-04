@@ -29,6 +29,8 @@ namespace StargateAPI.Business.Queries
 
             var person = await _context.Connection.QueryFirstOrDefaultAsync<PersonAstronaut>(query);
 
+            if (person is null) throw new BadHttpRequestException("Bad Request");
+
             result.Person = person;
 
             query = $"SELECT * FROM [AstronautDuty] WHERE {person.PersonId} = PersonId Order By DutyStartDate Desc";
@@ -38,7 +40,6 @@ namespace StargateAPI.Business.Queries
             result.AstronautDuties = duties.ToList();
 
             return result;
-
         }
     }
 

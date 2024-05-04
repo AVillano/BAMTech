@@ -35,6 +35,5 @@ namespace StargateAPI.Business.Queries
     public class GetPeopleResult : BaseResponse
     {
         public List<PersonAstronaut> People { get; set; } = new List<PersonAstronaut> { };
-
     }
 }
