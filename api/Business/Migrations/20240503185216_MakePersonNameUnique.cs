@@ -13,7 +13,7 @@ namespace StargateAPI.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
+            /*migrationBuilder.DeleteData(
                 table: "AstronautDetail",
                 keyColumn: "Id",
                 keyValue: 1);
@@ -31,7 +31,7 @@ namespace StargateAPI.Migrations
             migrationBuilder.DeleteData(
                 table: "Person",
                 keyColumn: "Id",
-                keyValue: 1);
+                keyValue: 1);*/
 
             migrationBuilder.CreateIndex(
                 name: "IX_Person_Name",
@@ -47,7 +47,7 @@ namespace StargateAPI.Migrations
                 name: "IX_Person_Name",
                 table: "Person");
 
-            migrationBuilder.InsertData(
+            /*migrationBuilder.InsertData(
                 table: "Person",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
@@ -64,7 +64,7 @@ namespace StargateAPI.Migrations
             migrationBuilder.InsertData(
                 table: "AstronautDuty",
                 columns: new[] { "Id", "DutyEndDate", "DutyStartDate", "DutyTitle", "PersonId", "Rank" },
-                values: new object[] { 1, null, new DateTime(2024, 5, 3, 9, 46, 14, 747, DateTimeKind.Local).AddTicks(2308), "Commander", 1, "1LT" });
+                values: new object[] { 1, null, new DateTime(2024, 5, 3, 9, 46, 14, 747, DateTimeKind.Local).AddTicks(2308), "Commander", 1, "1LT" });*/
         }
     }
 }

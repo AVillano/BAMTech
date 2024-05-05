@@ -24,6 +24,42 @@ namespace StargateAPI.Business.Data
             base.OnModelCreating(modelBuilder);
         }
 
+        public override int SaveChanges()
+        {
+            PreprocessUpdate();
+
+            return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            PreprocessUpdate();
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void PreprocessUpdate()
+        {
+            var trackedEntries = ChangeTracker.Entries();
+            foreach (var entry in trackedEntries)
+            {
+                if (!(entry.Entity is Entity))
+                    continue;
+
+                var now = DateTime.UtcNow;
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        ((Entity)entry.Entity).CreatedAt = now;
+                        ((Entity)entry.Entity).UpdatedAt = now;
+                        break;
+                    case EntityState.Modified:
+                        ((Entity)entry.Entity).UpdatedAt = now;
+                        break;
+                }
+            }
+        }
+
         private static void SeedData(ModelBuilder modelBuilder)
         {
             //add seed data

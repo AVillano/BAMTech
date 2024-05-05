@@ -19,7 +19,7 @@ namespace StargateAPI.Business.Data
     //  );
     //
     //  CREATE INDEX "IX_AstronautDuty_PersonId" ON "AstronautDuty"("PersonId");
-    public class AstronautDuty
+    public class AstronautDuty : Entity
     {
         public int Id { get; set; }
 

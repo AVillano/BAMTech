@@ -13,7 +13,7 @@ namespace StargateAPI.Business.Data
     //      "Name" TEXT NOT NULL
     //  );
     //  CREATE UNIQUE INDEX "IX_Person_Name" ON "Person"("Name");
-    public class Person
+    public class Person : Entity
     {
         public int Id { get; set; }
 

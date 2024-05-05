@@ -21,7 +21,7 @@ namespace StargateAPI.Business.Data
     //  CREATE UNIQUE INDEX "IX_AstronautDetail_PersonId" ON "AstronautDetail"(
     //      "PersonId"
     //  );
-    public class AstronautDetail
+    public class AstronautDetail : Entity
     {
         public int Id { get; set; }
 

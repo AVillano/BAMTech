@@ -34,9 +34,14 @@ namespace StargateAPI.Business.Commands
 
             if (person is null) throw new BadHttpRequestException("Bad Request");
 
-            var verifyNoPreviousDuty = _context.AstronautDuties.FirstOrDefault(z => z.DutyTitle == request.DutyTitle && z.DutyStartDate == request.DutyStartDate);
+            // I am going to rework this a little by combining two checks
+            // We are going to check that the incoming duty does not have a DutyStartDate before another DutyStartDate
+            // We are also going to check that the incoming duty is not a duplicate
+            // Both of those checks will apply for a given person
+            // They can also be combined by checking for incomingStartDate <= any AstronautDuty for that person
+            var previousOrDuplicate = _context.AstronautDuties.FirstOrDefault(z => z.DutyTitle == request.DutyTitle && z.DutyStartDate >= request.DutyStartDate && z.PersonId == person.Id);
 
-            if (verifyNoPreviousDuty is not null) throw new BadHttpRequestException("Bad Request");
+            if (previousOrDuplicate is not null) throw new BadHttpRequestException("Bad Request");
 
             return Task.CompletedTask;
         }
@@ -53,9 +58,10 @@ namespace StargateAPI.Business.Commands
         public async Task<CreateAstronautDutyResult> Handle(CreateAstronautDuty request, CancellationToken cancellationToken)
         {
 
-            var query = $"SELECT * FROM [Person] WHERE \'{request.Name}\' = Name";
+            var personParameters = new { Name = request.Name };
+            var query = $"SELECT * FROM [Person] WHERE @Name = Name";
 
-            var person = await _context.Connection.QueryFirstOrDefaultAsync<Person>(query);
+            var person = await _context.Connection.QueryFirstOrDefaultAsync<Person>(query, personParameters);
 
             query = $"SELECT * FROM [AstronautDetail] WHERE {person.Id} = PersonId";
 
@@ -70,6 +76,7 @@ namespace StargateAPI.Business.Commands
                 astronautDetail.CareerStartDate = request.DutyStartDate.Date;
                 if (request.DutyTitle == "RETIRED")
                 {
+                    astronautDetail.CurrentDutyTitle = string.Empty;
                     astronautDetail.CareerEndDate = request.DutyStartDate.AddDays(-1).Date;
                 }
 
@@ -82,6 +89,7 @@ namespace StargateAPI.Business.Commands
                 astronautDetail.CurrentRank = request.Rank;
                 if (request.DutyTitle == "RETIRED")
                 {
+                    astronautDetail.CurrentDutyTitle = string.Empty;
                     astronautDetail.CareerEndDate = request.DutyStartDate.AddDays(-1).Date;
                 }
                 _context.AstronautDetails.Update(astronautDetail);
