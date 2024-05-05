@@ -14,7 +14,7 @@
                     @for (duty of astronautDuties; track duty.id) {
                         <tr>
                             <td>{{duty.rank}}</td>
-                            <td>{{duty.dutyTitle}}</td>
+                            <td>{{duty.dutyTitle == "RETIRED" ? "Retired" : duty.dutyTitle}}</td>
                             <td>{{duty.dutyStartDate == null ? "None" : (duty.dutyStartDate | date: 'mediumDate')}}</td>
                             <td>{{duty.dutyEndDate == null ? "None" : (duty.dutyEndDate | date: 'mediumDate')}}</td>
                         </tr>

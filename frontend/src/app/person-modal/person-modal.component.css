@@ -11,10 +11,11 @@
 }
 
 .person-modal {
-    background-color: white;
+    background-color: #efefef;
     z-index: 2;
     width: 30%;
-    height: 30%;
+    min-width: 400px;
+    /*height: 30%;*/
     margin: auto;
     border: 1px solid black;
     border-radius: 10px;
