@@ -1,29 +1,31 @@
 @if (visible) {
-    <div class="person-modal">
-        {{name}}
-        <hr />
-        @if (astronautDuties.length != 0) {
-            <table class="table">
-                <tr>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Duty Title</th>
-                    <th scope="col">Duty Start Date</th>
-                    <th scope="col">Duty End Date</th>
-                </tr>
-                @for (duty of astronautDuties; track duty.id) {
+    <div class="modal-container" (click)="toggleVisibility()">
+        <div class="person-modal">
+            <h2>{{name}}</h2>
+            <hr />
+            @if (astronautDuties.length != 0) {
+                <table class="table">
                     <tr>
-                        <td>{{duty.rank}}</td>
-                        <td>{{duty.dutyTitle}}</td>
-                        <td>{{duty.dutyStartDate == null ? "None" : (duty.dutyStartDate | date: 'mediumDate')}}</td>
-                        <td>{{duty.dutyEndDate == null ? "None" : (duty.dutyEndDate | date: 'mediumDate')}}</td>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Duty Title</th>
+                        <th scope="col">Duty Start Date</th>
+                        <th scope="col">Duty End Date</th>
                     </tr>
-                }
-            </table>
-        }
-        @else {
-            <p>No astronaut duties to display</p>
-        }
-        <hr />
-        <button (click)="toggleVisibility()">Close</button>
+                    @for (duty of astronautDuties; track duty.id) {
+                        <tr>
+                            <td>{{duty.rank}}</td>
+                            <td>{{duty.dutyTitle}}</td>
+                            <td>{{duty.dutyStartDate == null ? "None" : (duty.dutyStartDate | date: 'mediumDate')}}</td>
+                            <td>{{duty.dutyEndDate == null ? "None" : (duty.dutyEndDate | date: 'mediumDate')}}</td>
+                        </tr>
+                    }
+                </table>
+            }
+            @else {
+                <p>No astronaut duties to display</p>
+            }
+            <hr />
+            <button class="btn btn-dark" (click)="toggleVisibility()">Close</button>
+        </div>
     </div>
 }

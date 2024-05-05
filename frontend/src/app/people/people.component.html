@@ -30,16 +30,33 @@
 }-->
 <main>
     <!--<h1>People</h1>-->
-    @for (person of people; track person.personId)
-    {
-        <div class="card" (click)="openModal(person.name)">
-            <h3>{{person.name}}</h3>
-            <hr />
-            <div>Rank: {{person.currentRank == "" ? "None" : person.currentRank}}</div>
-            <div>Current Duty Title: {{person.currentDutyTitle == "" ? "None" : person.currentDutyTitle}}</div>
-            <div>Career Start Date: {{person.careerStartDate == null ? "None" : (person.careerStartDate | date: 'mediumDate')}}</div>
-            <div>Career End Date: {{person.careerEndDate == null ? "None" : (person.careerEndDate | date: 'mediumDate')}}</div>
-        </div>
+    @for (person of people; track person.personId) {
+        @if (person.careerStartDate == null) {
+            <div class="card card-nonastronaut">
+                <h3>{{person.name}}</h3>
+                <hr />
+                <div>Non-Astronaut</div>
+            </div>
+        }
+        @else if (person.careerEndDate == null) {
+            <div class="card card-active card-clickable" (click)="openModal(person.name)">
+                <h3>{{person.name}}</h3>
+                <hr />
+                <div>Rank: {{person.currentRank}}</div>
+                <div>Current Duty Title: {{person.currentDutyTitle == "" ? "None" : person.currentDutyTitle}}</div>
+                <div>Career Start Date: {{person.careerStartDate | date: 'mediumDate'}}</div>
+            </div>
+        }
+        @else {
+            <div class="card card-retired card-clickable" (click)="openModal(person.name)">
+                <h3>{{person.name}}</h3>
+                <hr />
+                <div>Rank: {{person.currentRank}}</div>
+                <div>Current Duty Title: Retired</div>
+                <div>Career Start Date: {{person.careerStartDate | date: 'mediumDate'}}</div>
+                <div>Career End Date: {{person.careerEndDate | date: 'mediumDate'}}</div>
+            </div>
+        }
     }
     <!--<button (click)="resubscribe()">data test</button>-->
 </main>

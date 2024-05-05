@@ -23,7 +23,6 @@ main {
     margin-right: auto;*/
     padding-top: 5px;
     padding-bottom: 5px;
-    cursor: pointer;
 }
 
 .card h3 {
@@ -32,13 +31,47 @@ main {
 }
 
 .card hr {
-    width: 98%;
+    width: 90%;
     margin-top: 3px;
     margin-bottom: 3px;
     margin-left: auto;
     margin-right: auto;
+    height: 3px;
+    border: none;
 }
 
 .card div {
     margin-left: 1rem;
+}
+
+.card-clickable {
+    cursor: pointer;
+}
+
+.card-retired {
+    border-color: red;
+}
+
+.card-retired hr {
+    background: red;
+}
+
+.card-active {
+    border-color: yellowgreen;
+}
+
+.card-active hr {
+    background: yellowgreen;
+}
+
+.card-nonastronaut {
+    border-color: orange;
+}
+
+.card-nonastronaut hr {
+    background: orange;
+}
+
+.card-heading {
+    display: flex;
 }

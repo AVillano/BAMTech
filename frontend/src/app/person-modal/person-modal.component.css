@@ -1,8 +1,27 @@
+.modal-container {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .person-modal {
     background-color: white;
-    z-index: 1;
-    /*display: flex;*/
+    z-index: 2;
     width: 30%;
     height: 30%;
     margin: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.person-modal h2 {
+    text-align: center;
 }
