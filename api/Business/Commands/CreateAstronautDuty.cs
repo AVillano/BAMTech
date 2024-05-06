@@ -87,6 +87,8 @@ namespace StargateAPI.Business.Commands
             {
                 astronautDetail.CurrentDutyTitle = request.DutyTitle;
                 astronautDetail.CurrentRank = request.Rank;
+                // if someone comes out of retirement, their career is active again
+                astronautDetail.CareerEndDate = null;
                 if (request.DutyTitle == "RETIRED")
                 {
                     astronautDetail.CurrentDutyTitle = string.Empty;

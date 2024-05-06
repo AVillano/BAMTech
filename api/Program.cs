@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using StargateAPI.Business.Commands;
 using StargateAPI.Business.Data;
+using Microsoft.AspNetCore.SpaServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,19 @@ builder.Services.AddMediatR(cfg =>
 
     cfg.RegisterServicesFromAssemblies(typeof(Program).Assembly);
 });
+builder.Services.AddLogging(opt =>
+{
+    opt.AddSimpleConsole(c =>
+    {
+        c.TimestampFormat = "yyyy-MM-dd HH:mm:ss ";
+        c.UseUtcTimestamp = true;
+    });
+});
+
+//builder.Services.AddSpaStaticFiles(options =>
+//{
+//    options.RootPath = "UI/dist";
+//}); 
 
 var app = builder.Build();
 
@@ -31,6 +45,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//else
+//{
+//    app.UseSpaStaticFiles();
+//    /*app.UseSpa(spa =>
+//    {
+//        spa.Options.SourcePath
+//    })*/
+//}
 
 //app.UseHttpsRedirection();
 

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using StargateAPI.Business.Commands;
 using StargateAPI.Business.Queries;
 using System.Net;
+using System.Xml.Linq;
 
 namespace StargateAPI.Controllers
 {
@@ -11,9 +12,12 @@ namespace StargateAPI.Controllers
     public class AstronautDutyController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public AstronautDutyController(IMediator mediator)
+        private readonly ILogger<AstronautDutyController> _logger;
+        public AstronautDutyController(IMediator mediator, ILogger<AstronautDutyController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
+
         }
 
         [HttpGet("{name}")]
@@ -21,6 +25,7 @@ namespace StargateAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("AstronautDutyController.GetAstronautDutiesByName: Requested received with name = " + name);
                 var result = await _mediator.Send(new GetAstronautDutiesByName()
                 {
                     Name = name
@@ -44,6 +49,7 @@ namespace StargateAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("AstronautDutyController.CreateAstronautDuty: Requested received with name = " + request.Name);
                 var result = await _mediator.Send(request);
 
                 return this.GetResponse(result);

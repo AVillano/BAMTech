@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using StargateAPI.Business.Commands;
 using StargateAPI.Business.Queries;
 using System.Net;
+using System.Xml.Linq;
 
 namespace StargateAPI.Controllers
 {
@@ -12,9 +13,13 @@ namespace StargateAPI.Controllers
     public class PersonController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public PersonController(IMediator mediator)
+        private readonly ILogger<PersonController> _logger;
+
+        public PersonController(IMediator mediator, ILogger<PersonController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
+
         }
 
         [HttpGet("")]
@@ -22,6 +27,7 @@ namespace StargateAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("PersonController.GetPeople: Request received");
                 var result = await _mediator.Send(new GetPeople()
                 {
 
@@ -45,6 +51,7 @@ namespace StargateAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("PersonController.GetPersonByName: Request received with name = " + name);
                 var result = await _mediator.Send(new GetPersonByName()
                 {
                     Name = name
@@ -68,6 +75,7 @@ namespace StargateAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("PersonController.CreatePerson: Request received with name = " + name);
                 var result = await _mediator.Send(new CreatePerson()
                 {
                     Name = name
@@ -91,6 +99,7 @@ namespace StargateAPI.Controllers
         {
             try
             {
+                _logger.LogInformation("PersonController.UpdatePerson: Request received with oldName = " + oldName + " and newName = " + newName);
                 var result = await _mediator.Send(new UpdatePerson()
                 {
                     OldName = oldName,

@@ -1,0 +1,925 @@
+{
+	"info": {
+		"_postman_id": "e61d3393-71af-4ae1-8ccd-3b68cdef6c53",
+		"name": "BAM Tech Interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28732937"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Get People",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5204/person",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5204",
+							"path": [
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Person By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5204/person/Manfred",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5204",
+							"path": [
+								"person",
+								"Manfred"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"test' = Name; DROP TABLE test;\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5204/person",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5204",
+							"path": [
+								"person"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Person",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"Manfred\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5204/person/Ripley",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5204",
+							"path": [
+								"person",
+								"Ripley"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AstronautDuty",
+			"item": [
+				{
+					"name": "Create AstronautDuty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"test' = Name; DROP TABLE Person;\",\r\n  \"rank\": \"Private\",\r\n  \"dutyTitle\": \"Test\",\r\n  \"dutyStartDate\": \"2023-05-03T23:25:49.968Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5204/astronautduty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5204",
+							"path": [
+								"astronautduty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create AstronautDuty Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"'DROP TABLE test;\",\r\n  \"rank\": \"Private\",\r\n  \"dutyTitle\": \"Test\",\r\n  \"dutyStartDate\": \"2023-05-03T23:25:49.968Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5204/astronautduty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5204",
+							"path": [
+								"astronautduty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get AstronautDuty By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5204/astronautduty/Manfred",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5204",
+							"path": [
+								"astronautduty",
+								"Manfred"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Demo Data",
+			"item": [
+				{
+					"name": "People",
+					"item": [
+						{
+							"name": "Create Ripley",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Ripley\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Sarah Connor",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Sarah Connor\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Newt",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Newt\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create T-800",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"T-800\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Dr. Ian Malcolm",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Dr. Ian Malcolm\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Dr. Grant",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Dr. Grant\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Dillon",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Dillon\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Dutch",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Dutch\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Agent K",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"Agent K\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5204/person",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Astronaut Duties",
+					"item": [
+						{
+							"name": "Ripley (Retired)",
+							"item": [
+								{
+									"name": "Create AstronautDuty",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Ripley\",\r\n  \"rank\": \"Lieutenant\",\r\n  \"dutyTitle\": \"Nostromo Personnel\",\r\n  \"dutyStartDate\": \"1979-05-25T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create AstronautDuty Retired",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Ripley\",\r\n  \"rank\": \"Lieutenant\",\r\n  \"dutyTitle\": \"RETIRED\",\r\n  \"dutyStartDate\": \"1992-05-22T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Agent K (Retired)",
+							"item": [
+								{
+									"name": "Create AstronautDuty Copy",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Agent K\",\r\n  \"rank\": \"Founder\",\r\n  \"dutyTitle\": \"MIB Agent\",\r\n  \"dutyStartDate\": \"1997-07-02T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create AstronautDuty Retired",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Agent K\",\r\n  \"rank\": \"Founder\",\r\n  \"dutyTitle\": \"RETIRED\",\r\n  \"dutyStartDate\": \"1997-08-02T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create AstronautDuty Out of Retirement",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Agent K\",\r\n  \"rank\": \"Founder\",\r\n  \"dutyTitle\": \"MIB Senior Agent\",\r\n  \"dutyStartDate\": \"2002-08-02T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Dr. Ian Malcolm",
+							"item": [
+								{
+									"name": "Create AstronautDuty",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Dr. Ian Malcolm\",\r\n  \"rank\": \"Author\",\r\n  \"dutyTitle\": \"Advisor\",\r\n  \"dutyStartDate\": \"1993-06-11T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create AstronautDuty Retired",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Dr. Ian Malcolm\",\r\n  \"rank\": \"Isla Sorna Survivor\",\r\n  \"dutyTitle\": \"RETIRED\",\r\n  \"dutyStartDate\": \"1997-05-19T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "T-800",
+							"item": [
+								{
+									"name": "Create AstronautDuty Copy",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"T-800\",\r\n  \"rank\": \"Terminator\",\r\n  \"dutyTitle\": \"Skynet Agent\",\r\n  \"dutyStartDate\": \"1984-10-26T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create AstronautDuty Retired Copy",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"T-800\",\r\n  \"rank\": \"Terminator\",\r\n  \"dutyTitle\": \"Guardian\",\r\n  \"dutyStartDate\": \"1991-07-03T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Newt",
+							"item": [
+								{
+									"name": "Create AstronautDuty Copy 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Newt\",\r\n  \"rank\": \"Civilian\",\r\n  \"dutyTitle\": \"Settler\",\r\n  \"dutyStartDate\": \"1986-07-14T23:25:49.968Z\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5204/astronautduty",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5204",
+											"path": [
+												"astronautduty"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Demo",
+			"item": [
+				{
+					"name": "Show No SQL Injection",
+					"item": [
+						{
+							"name": "Create Dangerous Person",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"test' = Name; DELETE FROM Person;\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://18.217.108.128:5204/person",
+									"protocol": "http",
+									"host": [
+										"18",
+										"217",
+										"108",
+										"128"
+									],
+									"port": "5204",
+									"path": [
+										"person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Duty With No Side Effects",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"test' = Name; DELETE FROM Person;\",\r\n  \"rank\": \"Private\",\r\n  \"dutyTitle\": \"Test\",\r\n  \"dutyStartDate\": \"2023-05-03T23:25:49.968Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://18.217.108.128:5204/astronautduty",
+									"protocol": "http",
+									"host": [
+										"18",
+										"217",
+										"108",
+										"128"
+									],
+									"port": "5204",
+									"path": [
+										"astronautduty"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Show No Previous/Duplicate Duties",
+					"item": [
+						{
+							"name": "Create AstronautDuty Duplicate",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Dr. Ian Malcolm\",\r\n  \"rank\": \"Author\",\r\n  \"dutyTitle\": \"Advisor\",\r\n  \"dutyStartDate\": \"1993-06-11T23:25:49.968Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://18.217.108.128:5204/astronautduty",
+									"protocol": "http",
+									"host": [
+										"18",
+										"217",
+										"108",
+										"128"
+									],
+									"port": "5204",
+									"path": [
+										"astronautduty"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create AstronautDuty Previous",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Dr. Ian Malcolm\",\r\n  \"rank\": \"Author\",\r\n  \"dutyTitle\": \"Advisor\",\r\n  \"dutyStartDate\": \"1954-06-11T23:25:49.968Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://18.217.108.128:5204/astronautduty",
+									"protocol": "http",
+									"host": [
+										"18",
+										"217",
+										"108",
+										"128"
+									],
+									"port": "5204",
+									"path": [
+										"astronautduty"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get People AWS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://18.217.108.128:5204/person",
+							"protocol": "http",
+							"host": [
+								"18",
+								"217",
+								"108",
+								"128"
+							],
+							"port": "5204",
+							"path": [
+								"person"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
